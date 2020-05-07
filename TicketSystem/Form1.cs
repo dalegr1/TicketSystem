@@ -22,7 +22,7 @@ namespace TicketSystem
                 File.Create("Tickets.txt").Close();
                 using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt"))
                 {
-                    sw.WriteLine("N/A,N/A,1/1/2000 12:00:00 PM,0,0");
+                   // sw.WriteLine("N/A,N/A,1/1/2000 12:00:00 PM,0,0");
                     sw.Close();
                 }
             }
@@ -95,11 +95,13 @@ namespace TicketSystem
                 }
                 for (int x = 0; x < File.ReadLines("Tickets.txt").Count(); x++)
                 {
-                    // Aqui es donde estoy trabajando ahora intentando que se ponga rojo la row que tiene un TicketAge > 14 dias
-                    TimeSpan TicketAge = (DateTime.Now - Convert.ToDateTime(DateAndTime[x]));
-                    if ( TicketAge.TotalDays < 14)
-                    {
-                        dataGridView.Rows[x].DefaultCellStyle.BackColor = Color.Red;
+                    // Aqui es donde estoy trabajando ahora intentando que se ponga rojo
+                    // la row que tiene un TicketAge > 14 dias
+                    TimeSpan TicketAge = (DateTime.Now - Convert.ToDateTime(DateAndTime[x])) ;
+                    MessageBox.Show(Convert.ToString(TicketAge));
+                    MessageBox.Show(x.ToString());
+                    if ( TicketAge.TotalDays > 14)
+                    {     
                         ticketBindingSource.Add(new Ticket()
                         {
                             Name = Name[x],
@@ -108,6 +110,7 @@ namespace TicketSystem
                             Batch = Convert.ToInt32(Batch[x]),
                             Station = Convert.ToInt32(Station[x])
                         });
+                        dataGridView.Rows[x].DefaultCellStyle.BackColor = Color.Red;
                     }
                     else
                     {
