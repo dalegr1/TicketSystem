@@ -97,9 +97,7 @@ namespace TicketSystem
                 {
                     // Aqui es donde estoy trabajando ahora intentando que se ponga rojo
                     // la row que tiene un TicketAge > 14 dias
-                    TimeSpan TicketAge = (DateTime.Now - Convert.ToDateTime(DateAndTime[x])) ;
-                    MessageBox.Show(Convert.ToString(TicketAge));
-                    MessageBox.Show(x.ToString());
+                    TimeSpan TicketAge = (DateTime.Now - Convert.ToDateTime(DateAndTime[x]));
                     if ( TicketAge.TotalDays > 14)
                     {     
                         ticketBindingSource.Add(new Ticket()

@@ -78,7 +78,7 @@ namespace TicketSystem
                                  txtAction.Text);
                     sw.Close();
 
-                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "ResolvedTickets.txt");
+                    //  Process.Start(AppDomain.CurrentDomain.BaseDirectory + "ResolvedTickets.txt");
                 }
             }
             else
@@ -93,7 +93,7 @@ namespace TicketSystem
                                  txtProblem.Text + "," +
                                  txtAction.Text);
                     sw.Close();
-                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "ResolvedTickets.txt");
+                    //Process.Start(AppDomain.CurrentDomain.BaseDirectory + "ResolvedTickets.txt");
 
                     
                 }
@@ -105,9 +105,9 @@ namespace TicketSystem
                                 TicketInfo.DefectType + "," +
                                 TicketInfo.DateAndTime.ToString() + "," +
                                 Convert.ToString(TicketInfo.Batch) + "," +
-                                Convert.ToString(TicketInfo.Station)
+                                Convert.ToString(TicketInfo.Station) + "\r\n"
                                 ,
-                                "N/A,N/A,1/1/2000 12:00:00 PM,0,0"
+                                ""
                                 );
             File.WriteAllText("Tickets.txt", text);
             Process.Start(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt");
