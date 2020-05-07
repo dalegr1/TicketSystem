@@ -22,7 +22,7 @@ namespace TicketSystem
                 File.Create("Tickets.txt").Close();
                 using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt"))
                 {
-                    sw.WriteLine("N/A,New Ticket,1/1/2000 12:00:00 PM,0,0");
+                    sw.WriteLine("N/A,N/A,1/1/2000 12:00:00 PM,0,0");
                     sw.Close();
                 }
             }
@@ -59,7 +59,8 @@ namespace TicketSystem
             });
             using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt"))
             {
-                sw.WriteLine("N/A,New Ticket,1/1/2000 12:00:00 PM,0,0");
+                //sw.Write(Environment.NewLine);
+                sw.WriteLine("N/A,N/A,1/1/2000 12:00:00 PM,0,0");
                 sw.Close();
             }
         }
@@ -80,17 +81,31 @@ namespace TicketSystem
                 List<string> Station = new List<string>();
                 while (!reader.EndOfStream)
                 {
+
                     var line = reader.ReadLine();
                     var values = line.Split(',');
-
-                    Name.Add(values[0]);
-                    DefectType.Add(values[1]);
-                    DateAndTime.Add(values[2]);
-                    Batch.Add(values[3]);
-                    Station.Add(values[4]);
+                    if (!(line == ""))
+                    {
+                        Name.Add(values[0]);
+                        DefectType.Add(values[1]);
+                        DateAndTime.Add(values[2]);
+                        Batch.Add(values[3]);
+                        Station.Add(values[4]);
+                    }
 
                 }
                 for (int x = 0; x < File.ReadLines("Tickets.txt").Count(); x++)
+                {
+                    /*
+                    var line = reader.ReadLine();
+
+                    if (line == "")
+                    {
+                        
+                         string text = File.ReadAllText("Tickets.txt");
+                         text.Remove);
+                         File.WriteAllText("Tickets.txt", text);
+                    }*/
                     ticketBindingSource.Add(new Ticket()
                     {
                         Name = Name[x],
@@ -99,10 +114,10 @@ namespace TicketSystem
                         Batch = Convert.ToInt32(Batch[x]),
                         Station = Convert.ToInt32(Station[x])
                     });
+                    
+                }
             }
         }
     }
-
-        
-    
+            
 }

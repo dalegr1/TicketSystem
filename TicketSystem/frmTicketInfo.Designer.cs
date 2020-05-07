@@ -44,6 +44,7 @@
             this.txtAction = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.txtDateAndTime = new System.Windows.Forms.TextBox();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -129,7 +130,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 399);
+            this.label7.Location = new System.Drawing.Point(12, 465);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(173, 20);
             this.label7.TabIndex = 12;
@@ -138,7 +139,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 237);
+            this.label8.Location = new System.Drawing.Point(12, 306);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(138, 20);
             this.label8.TabIndex = 13;
@@ -154,7 +155,7 @@
             // 
             // txtProblem
             // 
-            this.txtProblem.Location = new System.Drawing.Point(191, 237);
+            this.txtProblem.Location = new System.Drawing.Point(205, 306);
             this.txtProblem.Multiline = true;
             this.txtProblem.Name = "txtProblem";
             this.txtProblem.Size = new System.Drawing.Size(556, 138);
@@ -162,7 +163,7 @@
             // 
             // txtAction
             // 
-            this.txtAction.Location = new System.Drawing.Point(191, 396);
+            this.txtAction.Location = new System.Drawing.Point(205, 462);
             this.txtAction.Multiline = true;
             this.txtAction.Name = "txtAction";
             this.txtAction.Size = new System.Drawing.Size(556, 156);
@@ -170,11 +171,11 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(329, 575);
+            this.SaveButton.Location = new System.Drawing.Point(323, 249);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(129, 36);
             this.SaveButton.TabIndex = 17;
-            this.SaveButton.Text = "Save";
+            this.SaveButton.Text = "Save Ticket";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
@@ -185,11 +186,22 @@
             this.txtDateAndTime.Size = new System.Drawing.Size(175, 26);
             this.txtDateAndTime.TabIndex = 18;
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(323, 638);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(129, 36);
+            this.DeleteButton.TabIndex = 19;
+            this.DeleteButton.Text = "Resolve Ticket";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click_1);
+            // 
             // frmTicketInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 632);
+            this.ClientSize = new System.Drawing.Size(831, 686);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.txtDateAndTime);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.txtAction);
@@ -232,5 +244,6 @@
         private System.Windows.Forms.TextBox txtAction;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.TextBox txtDateAndTime;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

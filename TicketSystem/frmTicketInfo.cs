@@ -37,7 +37,7 @@ namespace TicketSystem
         private void SaveButton_Click(object sender, EventArgs e)
         {
             string text = File.ReadAllText("Tickets.txt");
-            text = text.Replace(TicketInfo.Name + "," + 
+            text = text.Replace(TicketInfo.Name + "," +
                                 TicketInfo.DefectType + "," +
                                 TicketInfo.DateAndTime.ToString() + "," +
                                 Convert.ToString(TicketInfo.Batch) + "," +
@@ -49,7 +49,7 @@ namespace TicketSystem
                                  txtBatch.Text + "," +
                                  txtStation.Text
                                 );
-            text = text.Replace("N/A,New Ticket,1/1/2000 12:00:00 PM,0,0"
+            text = text.Replace("N/A,N/A,1/1/2000 12:00:00 PM,0,0"
                                 ,
                                 txtName.Text + "," +
                                  txtDefectType.Text + "," +
@@ -59,10 +59,59 @@ namespace TicketSystem
                                 );
             File.WriteAllText("Tickets.txt", text);
             //Process.Start(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt");
-            
-        }
-           
 
+        }
+
+        private void DeleteButton_Click_1(object sender, EventArgs e)
+        {
+            if (!File.Exists("ResolvedTickets.txt"))
+            {
+                File.Create("ResolvedTickets.txt").Close();
+                using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "ResolvedTickets.txt"))
+                {
+                    sw.WriteLine(txtName.Text + "," +
+                                 txtDefectType.Text + "," +
+                                 txtDateAndTime.Text + "," +
+                                 txtBatch.Text + "," +
+                                 txtStation.Text + "," +
+                                 txtProblem.Text + "," +
+                                 txtAction.Text);
+                    sw.Close();
+
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "ResolvedTickets.txt");
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "ResolvedTickets.txt"))
+                {
+                    sw.WriteLine(txtName.Text + "," +
+                                 txtDefectType.Text + "," +
+                                 txtDateAndTime.Text + "," +
+                                 txtBatch.Text + "," +
+                                 txtStation.Text + "," +
+                                 txtProblem.Text + "," +
+                                 txtAction.Text);
+                    sw.Close();
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "ResolvedTickets.txt");
+
+                    
+                }
+            
+
+            }
+            string text = File.ReadAllText("Tickets.txt");
+            text = text.Replace(TicketInfo.Name + "," +
+                                TicketInfo.DefectType + "," +
+                                TicketInfo.DateAndTime.ToString() + "," +
+                                Convert.ToString(TicketInfo.Batch) + "," +
+                                Convert.ToString(TicketInfo.Station)
+                                ,
+                                "N/A,N/A,1/1/2000 12:00:00 PM,0,0"
+                                );
+            File.WriteAllText("Tickets.txt", text);
+            Process.Start(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt");
+        }
     }
 }
 
