@@ -59,7 +59,6 @@ namespace TicketSystem
             });
             using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt"))
             {
-                //sw.Write(Environment.NewLine);
                 sw.WriteLine("N/A,N/A,1/1/2000 12:00:00 PM,0,0");
                 sw.Close();
             }
@@ -96,16 +95,6 @@ namespace TicketSystem
                 }
                 for (int x = 0; x < File.ReadLines("Tickets.txt").Count(); x++)
                 {
-                    /*
-                    var line = reader.ReadLine();
-
-                    if (line == "")
-                    {
-                        
-                         string text = File.ReadAllText("Tickets.txt");
-                         text.Remove);
-                         File.WriteAllText("Tickets.txt", text);
-                    }*/
                     ticketBindingSource.Add(new Ticket()
                     {
                         Name = Name[x],
