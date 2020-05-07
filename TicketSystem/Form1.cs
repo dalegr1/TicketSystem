@@ -17,6 +17,15 @@ namespace TicketSystem
         public Dashboard()
         {
             InitializeComponent();
+            if (!File.Exists("Tickets.txt"))
+            {
+                File.Create("Tickets.txt").Close();
+                using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt"))
+                {
+                    sw.WriteLine("N/A,New Ticket,01/01/2000,0:00,0,0");
+                    sw.Close();
+                }
+            }
         }
 
         private void dataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -34,7 +43,8 @@ namespace TicketSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
+            
             using (var reader = new StreamReader("Tickets.txt"))
             {
                 List<string> Name = new List<string>();
@@ -67,16 +77,7 @@ namespace TicketSystem
                         Station = Convert.ToInt32(Station[x])
                     });
             }
-            /*
-            ticketBindingSource.Add(new Ticket()
-            {
-                Name = "N/A",
-                DefectType = "New Ticket",
-                Date = Convert.ToDateTime("01/01/2000"),
-                Time = Convert.ToDateTime("00:00"),
-                Batch = Convert.ToInt32("0"),
-                Station = Convert.ToInt32("0")
-            });*/
+
         }
     }
 }
