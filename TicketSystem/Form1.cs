@@ -28,7 +28,7 @@ namespace TicketSystem
             }
         }
 
-        private void dataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Ticket obj = ticketBindingSource.Current as Ticket;
             if (obj != null)
@@ -37,6 +37,7 @@ namespace TicketSystem
                 {
                     frm.ShowDialog();
                     Refresh();
+
                 }
             }
 

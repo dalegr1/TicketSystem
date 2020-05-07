@@ -27,6 +27,17 @@ namespace TicketSystem
         }
         private void frmTicketInfo_Load(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you an administrator?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DeleteButton.Enabled = true;
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                DeleteButton.Enabled = false;
+                DeleteButton.Text = "Disabled";
+            }
+
             txtName.Text = TicketInfo.Name;
             txtDefectType.Text = TicketInfo.DefectType;
             txtDateAndTime.Text = TicketInfo.DateAndTime.ToString();
@@ -64,6 +75,7 @@ namespace TicketSystem
 
         private void DeleteButton_Click_1(object sender, EventArgs e)
         {
+
             if (!File.Exists("ResolvedTickets.txt"))
             {
                 File.Create("ResolvedTickets.txt").Close();
