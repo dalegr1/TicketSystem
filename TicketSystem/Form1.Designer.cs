@@ -32,12 +32,12 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.ticketBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.defectTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.batchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -53,19 +53,19 @@
             this.batchDataGridViewTextBoxColumn,
             this.stationDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.ticketBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(168, 12);
+            this.dataGridView.Location = new System.Drawing.Point(-95, 12);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 28;
-            this.dataGridView.Size = new System.Drawing.Size(815, 399);
+            this.dataGridView.Size = new System.Drawing.Size(824, 365);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentDoubleClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(735, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 54);
+            this.button1.Size = new System.Drawing.Size(114, 54);
             this.button1.TabIndex = 2;
             this.button1.Text = "New Ticket";
             this.button1.UseVisualStyleBackColor = true;
@@ -73,17 +73,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 95);
+            this.button2.Location = new System.Drawing.Point(735, 63);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 46);
+            this.button2.Size = new System.Drawing.Size(114, 56);
             this.button2.TabIndex = 3;
             this.button2.Text = "Refresh";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // ticketBindingSource
-            // 
-            this.ticketBindingSource.DataSource = typeof(TicketSystem.Ticket);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -125,11 +121,15 @@
             this.stationDataGridViewTextBoxColumn.Name = "stationDataGridViewTextBoxColumn";
             this.stationDataGridViewTextBoxColumn.Width = 150;
             // 
+            // ticketBindingSource
+            // 
+            this.ticketBindingSource.DataSource = typeof(TicketSystem.Ticket);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 520);
+            this.ClientSize = new System.Drawing.Size(849, 425);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView);
