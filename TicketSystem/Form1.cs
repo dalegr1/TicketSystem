@@ -36,6 +36,7 @@ namespace TicketSystem
                 using (frmTicketInfo frm = new frmTicketInfo(obj))
                 {
                     frm.ShowDialog();
+                    Refresh();
                 }
             }
 
@@ -43,38 +44,7 @@ namespace TicketSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            
-            using (var reader = new StreamReader("Tickets.txt"))
-            {
-                List<string> Name = new List<string>();
-                List<string> DefectType = new List<string>();
-                List<string> DateAndTime = new List<string>();
-                List<string> Batch = new List<string>();
-                List<string> Station = new List<string>();
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    var values = line.Split(',');
-
-                    Name.Add(values[0]);
-                    DefectType.Add(values[1]);
-                    DateAndTime.Add(values[2]);
-                    Batch.Add(values[3]);
-                    Station.Add(values[4]);
-
-                }
-                for (int x = 0; x < File.ReadLines("Tickets.txt").Count(); x++)
-                    ticketBindingSource.Add(new Ticket()
-                    {
-                        Name = Name[x],
-                        DefectType = DefectType[x],
-                        DateAndTime = Convert.ToDateTime(DateAndTime[x]),
-                        Batch = Convert.ToInt32(Batch[x]),
-                        Station = Convert.ToInt32(Station[x])
-                    });
-            }
-
+            Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -95,6 +65,10 @@ namespace TicketSystem
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+        public void Refresh()
         {
             this.dataGridView.Rows.Clear();
             using (var reader = new StreamReader("Tickets.txt"))
@@ -128,4 +102,7 @@ namespace TicketSystem
             }
         }
     }
+
+        
+    
 }
