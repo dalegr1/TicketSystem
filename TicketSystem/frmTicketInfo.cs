@@ -29,45 +29,39 @@ namespace TicketSystem
         {
             txtName.Text = TicketInfo.Name;
             txtDefectType.Text = TicketInfo.DefectType;
-            txtDate.Text = TicketInfo.Date.ToString();
-            txtTime.Text = TicketInfo.Time.ToString();
+            txtDateAndTime.Text = TicketInfo.DateAndTime.ToString();
             txtBatch.Text = TicketInfo.Batch.ToString();
             txtStation.Text = TicketInfo.Station.ToString();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-                using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt"))
-                {
-                    sw.WriteLine(txtName.Text + "," +
+            string text = File.ReadAllText("Tickets.txt");
+            text = text.Replace(TicketInfo.Name + "," + 
+                                TicketInfo.DefectType + "," +
+                                TicketInfo.DateAndTime.ToString() + "," +
+                                Convert.ToString(TicketInfo.Batch) + "," +
+                                Convert.ToString(TicketInfo.Station)
+                                ,
+                                txtName.Text + "," +
                                  txtDefectType.Text + "," +
-                                 txtDate.Text + "," +
-                                 txtTime.Text + "," +
+                                 txtDateAndTime.Text + "," +
                                  txtBatch.Text + "," +
-                                 txtStation.Text);
-                    sw.Close();
-                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt");
-                }
+                                 txtStation.Text
+                                );
+            text = text.Replace("N/A,New Ticket,1/1/2000 12:00:00 PM,0,0"
+                                ,
+                                txtName.Text + "," +
+                                 txtDefectType.Text + "," +
+                                 txtDateAndTime.Text + "," +
+                                 txtBatch.Text + "," +
+                                 txtStation.Text
+                                );
+            File.WriteAllText("Tickets.txt", text);
+            //Process.Start(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt");
+            
         }
-            /*
-            Form Form1 = new Form();
-            DataGridView dataGridView = new DataGridView();
-            dataGridView.Dock = DockStyle.Fill;
-
-            string[] textData = System.IO.File.ReadAllLines("Tickets.Txt");
-            string[] headers = textData[0].Split(',');
-
-            DataTable dataTable1 = new DataTable();
-            foreach (string header in headers)
-                dataTable1.Columns.Add(header, typeof(string), null);
-            for (int i = 1; i < textData.Length; i++)
-                dataTable1.Rows.Add(textData[i].Split(','));
-
-            dataGridView.DataSource = dataTable1;
-            Form1.Controls.Add(dataGridView);
-            Form1.ShowDialog();
-            */
-        
+           
 
     }
 }

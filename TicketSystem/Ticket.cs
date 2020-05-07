@@ -10,8 +10,7 @@ namespace TicketSystem
     {
         public string Name { get; set; }
         public string DefectType { get; set; }
-        public DateTime Date { get; set; }
-        public DateTime Time { get; set; }
+        public DateTime DateAndTime { get; set; }
         public int Batch { get; set; }
         public int Station { get; set; }
 

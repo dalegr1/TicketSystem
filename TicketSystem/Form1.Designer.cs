@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.defectTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.batchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.defectTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.batchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ticketBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SaveButtonDashboard = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -47,20 +47,27 @@
             this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.defectTypeDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
-            this.batchDataGridViewTextBoxColumn,
-            this.timeDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
+            this.defectTypeDataGridViewTextBoxColumn,
+            this.dateAndTimeDataGridViewTextBoxColumn,
+            this.batchDataGridViewTextBoxColumn,
             this.stationDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.ticketBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(1, 1);
+            this.dataGridView.Location = new System.Drawing.Point(137, 12);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 28;
-            this.dataGridView.Size = new System.Drawing.Size(941, 404);
+            this.dataGridView.Size = new System.Drawing.Size(965, 391);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentDoubleClick);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 150;
             // 
             // defectTypeDataGridViewTextBoxColumn
             // 
@@ -70,13 +77,13 @@
             this.defectTypeDataGridViewTextBoxColumn.Name = "defectTypeDataGridViewTextBoxColumn";
             this.defectTypeDataGridViewTextBoxColumn.Width = 150;
             // 
-            // dateDataGridViewTextBoxColumn
+            // dateAndTimeDataGridViewTextBoxColumn
             // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.Width = 150;
+            this.dateAndTimeDataGridViewTextBoxColumn.DataPropertyName = "DateAndTime";
+            this.dateAndTimeDataGridViewTextBoxColumn.HeaderText = "DateAndTime";
+            this.dateAndTimeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dateAndTimeDataGridViewTextBoxColumn.Name = "dateAndTimeDataGridViewTextBoxColumn";
+            this.dateAndTimeDataGridViewTextBoxColumn.Width = 150;
             // 
             // batchDataGridViewTextBoxColumn
             // 
@@ -85,22 +92,6 @@
             this.batchDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.batchDataGridViewTextBoxColumn.Name = "batchDataGridViewTextBoxColumn";
             this.batchDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // timeDataGridViewTextBoxColumn
-            // 
-            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
-            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
-            this.timeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
-            this.timeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 150;
             // 
             // stationDataGridViewTextBoxColumn
             // 
@@ -114,21 +105,33 @@
             // 
             this.ticketBindingSource.DataSource = typeof(TicketSystem.Ticket);
             // 
-            // SaveButtonDashboard
+            // button1
             // 
-            this.SaveButtonDashboard.Location = new System.Drawing.Point(404, 423);
-            this.SaveButtonDashboard.Name = "SaveButtonDashboard";
-            this.SaveButtonDashboard.Size = new System.Drawing.Size(85, 53);
-            this.SaveButtonDashboard.TabIndex = 1;
-            this.SaveButtonDashboard.Text = "Save";
-            this.SaveButtonDashboard.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 54);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "New Ticket";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(13, 95);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(115, 46);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Refresh";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 488);
-            this.Controls.Add(this.SaveButtonDashboard);
+            this.ClientSize = new System.Drawing.Size(1114, 512);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
@@ -142,14 +145,16 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn defectTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn batchDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stationDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource ticketBindingSource;
-        private System.Windows.Forms.Button SaveButtonDashboard;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn defectTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateAndTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batchDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -22,7 +22,7 @@ namespace TicketSystem
                 File.Create("Tickets.txt").Close();
                 using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt"))
                 {
-                    sw.WriteLine("N/A,New Ticket,01/01/2000,0:00,0,0");
+                    sw.WriteLine("N/A,New Ticket,1/1/2000 12:00:00 PM,0,0");
                     sw.Close();
                 }
             }
@@ -49,8 +49,7 @@ namespace TicketSystem
             {
                 List<string> Name = new List<string>();
                 List<string> DefectType = new List<string>();
-                List<string> Date = new List<string>();
-                List<string> Time = new List<string>();
+                List<string> DateAndTime = new List<string>();
                 List<string> Batch = new List<string>();
                 List<string> Station = new List<string>();
                 while (!reader.EndOfStream)
@@ -60,10 +59,9 @@ namespace TicketSystem
 
                     Name.Add(values[0]);
                     DefectType.Add(values[1]);
-                    Date.Add(values[2]);
-                    Time.Add(values[3]);
-                    Batch.Add(values[4]);
-                    Station.Add(values[5]);
+                    DateAndTime.Add(values[2]);
+                    Batch.Add(values[3]);
+                    Station.Add(values[4]);
 
                 }
                 for (int x = 0; x < File.ReadLines("Tickets.txt").Count(); x++)
@@ -71,13 +69,63 @@ namespace TicketSystem
                     {
                         Name = Name[x],
                         DefectType = DefectType[x],
-                        Date = Convert.ToDateTime(Date[x]),
-                        Time = Convert.ToDateTime(Time[x]),
+                        DateAndTime = Convert.ToDateTime(DateAndTime[x]),
                         Batch = Convert.ToInt32(Batch[x]),
                         Station = Convert.ToInt32(Station[x])
                     });
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ticketBindingSource.Add(new Ticket()
+            {
+                Name = "N/A",
+                DefectType = "N/A",
+                DateAndTime = Convert.ToDateTime("1/1/2000 12:00:00 PM"),
+                Batch = 0,
+                Station = 0
+            });
+            using (StreamWriter sw = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt"))
+            {
+                sw.WriteLine("N/A,New Ticket,1/1/2000 12:00:00 PM,0,0");
+                sw.Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.dataGridView.Rows.Clear();
+            using (var reader = new StreamReader("Tickets.txt"))
+            {
+                List<string> Name = new List<string>();
+                List<string> DefectType = new List<string>();
+                List<string> DateAndTime = new List<string>();
+                List<string> Batch = new List<string>();
+                List<string> Station = new List<string>();
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+
+                    Name.Add(values[0]);
+                    DefectType.Add(values[1]);
+                    DateAndTime.Add(values[2]);
+                    Batch.Add(values[3]);
+                    Station.Add(values[4]);
+
+                }
+                for (int x = 0; x < File.ReadLines("Tickets.txt").Count(); x++)
+                    ticketBindingSource.Add(new Ticket()
+                    {
+                        Name = Name[x],
+                        DefectType = DefectType[x],
+                        DateAndTime = Convert.ToDateTime(DateAndTime[x]),
+                        Batch = Convert.ToInt32(Batch[x]),
+                        Station = Convert.ToInt32(Station[x])
+                    });
+            }
         }
     }
 }

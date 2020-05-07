@@ -31,12 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDefectType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDate = new System.Windows.Forms.TextBox();
-            this.txtTime = new System.Windows.Forms.TextBox();
+            this.txtDateAndTime = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtBatch = new System.Windows.Forms.TextBox();
             this.txtStation = new System.Windows.Forms.TextBox();
@@ -76,18 +74,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 156);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.Size = new System.Drawing.Size(117, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Date:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(238, 156);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Time:";
+            this.label2.Text = "Date and Time:";
             // 
             // label4
             // 
@@ -116,19 +105,12 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Name:";
             // 
-            // txtDate
+            // txtDateAndTime
             // 
-            this.txtDate.Location = new System.Drawing.Point(86, 153);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(127, 26);
-            this.txtDate.TabIndex = 7;
-            // 
-            // txtTime
-            // 
-            this.txtTime.Location = new System.Drawing.Point(315, 153);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(100, 26);
-            this.txtTime.TabIndex = 8;
+            this.txtDateAndTime.Location = new System.Drawing.Point(135, 150);
+            this.txtDateAndTime.Name = "txtDateAndTime";
+            this.txtDateAndTime.Size = new System.Drawing.Size(280, 26);
+            this.txtDateAndTime.TabIndex = 7;
             // 
             // txtName
             // 
@@ -215,12 +197,10 @@
             this.Controls.Add(this.txtStation);
             this.Controls.Add(this.txtBatch);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtTime);
-            this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.txtDateAndTime);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDefectType);
             this.Controls.Add(this.label1);
@@ -237,12 +217,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox txtDefectType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDate;
-        private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.TextBox txtDateAndTime;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtBatch;
         private System.Windows.Forms.TextBox txtStation;
