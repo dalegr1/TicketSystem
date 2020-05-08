@@ -43,6 +43,7 @@ namespace TicketSystem
 
         }
 
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Refresh();
@@ -96,11 +97,9 @@ namespace TicketSystem
                 }
                 for (int x = 0; x < File.ReadLines("Tickets.txt").Count(); x++)
                 {
-                    // Aqui es donde estoy trabajando ahora intentando que se ponga rojo
-                    // la row que tiene un TicketAge > 14 dias
                     TimeSpan TicketAge = (DateTime.Now - Convert.ToDateTime(DateAndTime[x]));
                     if ( TicketAge.TotalDays > 14)
-                    {     
+                    {    
                         ticketBindingSource.Add(new Ticket()
                         {
                             Name = Name[x],
@@ -126,6 +125,13 @@ namespace TicketSystem
                     
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.dataGridView.Rows.Clear();
+            File.WriteAllText("Tickets.txt", String.Empty);
+            Refresh();
         }
     }
             
