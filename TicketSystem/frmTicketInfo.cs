@@ -122,6 +122,7 @@ namespace TicketSystem
                                 ""
                                 );
             File.WriteAllText("Tickets.txt", text);
+            this.Close();
             //Process.Start(AppDomain.CurrentDomain.BaseDirectory + "Tickets.txt");
         }
     }
